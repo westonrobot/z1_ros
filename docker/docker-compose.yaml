@@ -1,0 +1,15 @@
+version: "3.0"
+services:
+  z1_ros:
+    image: z1_ros:matthew
+    container_name: z1_ros_container
+    network_mode: "host"
+    environment:
+      - DISPLAY=$DISPLAY
+    volumes:
+      - ../src:/app/src
+      - ../scripts:/app/scripts/
+      - /tmp/.X11-unix:/tmp/.X11-unix
+
+    entrypoint: /app/scripts/entrypoint.sh
+
